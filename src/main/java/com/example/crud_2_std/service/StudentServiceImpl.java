@@ -24,6 +24,11 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
+    public List<Student> allStd() {
+        return studentRepository.findAll();
+    }
+
+    @Override
     public Page<Student> findAllStudent(String name, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         if (name != null && !name.isEmpty()) {
@@ -32,7 +37,6 @@ public class StudentServiceImpl implements IStudentService {
             return studentRepository.findAll(pageable);
         }
     }
-
 
     @Override
     public Optional<Student> findByIdStudents(Long id) {
@@ -52,9 +56,6 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public Student addStudent(Student student) {
-        Clazz clazz = student.getClazz();
-        clazzRepository.save(clazz);
-        student.setClazz(clazz);
         return studentRepository.save(student);
     }
 }

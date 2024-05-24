@@ -10,16 +10,19 @@ public class Clazz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String cla;
+    private String teacher;
+    private String evaluate; // danh gia
 
 
 
     public Clazz() {
     }
 
-    public Clazz(Long id, String name) {
+    public Clazz(Long id, String cla, String teacher, String evaluate) {
         this.id = id;
-        this.name = name;
-
+        this.cla = cla;
+        this.teacher = teacher;
+        this.evaluate = evaluate;
     }
 }
